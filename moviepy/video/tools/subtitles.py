@@ -172,7 +172,7 @@ def file_to_subtitles(filename, encoding=None):
     current_text = ""
     with open(filename, "r", encoding=encoding) as file:
         for line in file:
-            times = re.findall("([0-9]*:[0-9]*:[0-9]*,[0-9]*)", line)
+            times = re.findall("([0-9]*:[0-9]*:[0-9]*,?[0-9]*)", line)
             if times:
                 current_times = [convert_to_seconds(t) for t in times]
             elif line.strip() == "":
